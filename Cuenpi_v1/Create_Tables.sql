@@ -52,6 +52,9 @@ CREATE TABLE Producto(
 	REFERENCES Categoria (IdCategoria)
 )
 
+ALTER TABLE Producto
+ADD Cantidad TINYINT NOT NULL
+
 CREATE TABLE Producto_Caracteristica(
 	IdProducto INT NOT NULL,
 	IdCaracteristica INT NOT NULL,
