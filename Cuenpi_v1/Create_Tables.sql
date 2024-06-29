@@ -6,6 +6,11 @@ CREATE TABLE Cliente(
 	Direccion VARCHAR(120)
 )
 
+CREATE TABLE MetodoPago(
+	 IdMetodoPago INT PRIMARY KEY IDENTITY (1, 1),
+	 Nombre VARCHAR(25)
+)
+
 CREATE TABLE Abono(
 	IdAbono INT PRIMARY KEY IDENTITY(1, 1),
 	IdCliente INT NOT NULL,
@@ -14,6 +19,13 @@ CREATE TABLE Abono(
 	CONSTRAINT FK_IdCliente FOREIGN KEY (IdCliente) 
 	REFERENCES Cliente (IdCliente)
 )
+
+ALTER TABLE Abono 
+ADD IdMetodoPago INT NOT NULL
+
+ALTER TABLE Abono
+ADD CONSTRAINT FK_IdMetodoPago FOREIGN KEY (IdMetodoPago)
+REFERENCES MetodoPago (IdMetodoPago)
 
 CREATE TABLE Marca(
 	IdMarca INT PRIMARY KEY IDENTITY(1, 1),
